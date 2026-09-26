@@ -1,206 +1,107 @@
-/**
- * ============================================================================
- * MAIN APPLICATION LOGIC & AUDIO SYNTHESIZER
- * ============================================================================
- */
-
-// 1. Web Audio API Synthesizer (Zero asset dependency)
-const AudioSynth = (function() {
-  let ctx = null;
-  let isMuted = localStorage.getItem('rishabh_audio_muted') === 'true';
-
-  function getContext() {
-    if (!ctx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (AudioContext) ctx = new AudioContext();
-    }
-    if (ctx && ctx.state === 'suspended') {
-      ctx.resume();
-    }
-    return ctx;
-  }
-
-  function playTone(freq, type, duration, gainVal = 0.08) {
-    if (isMuted) return;
-    try {
-      const audioCtx = getContext();
-      if (!audioCtx) return;
-
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = type;
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-      gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start();
-      osc.stop(audioCtx.currentTime + duration);
-    } catch (e) {}
-  }
-
-  return {
-    playHover: () => playTone(880, 'sine', 0.05, 0.03),
-    playClick: () => playTone(540, 'triangle', 0.08, 0.05),
-    playBlip: (f = 700) => playTone(f, 'sine', 0.07, 0.06),
-    playSuccess: () => {
-      if (isMuted) return;
-      playTone(523.25, 'triangle', 0.15, 0.08); // C5
-      setTimeout(() => playTone(659.25, 'triangle', 0.15, 0.08), 100); // E5
-      setTimeout(() => playTone(783.99, 'triangle', 0.25, 0.08), 200); // G5
-    },
-    toggleMute: () => {
-      isMuted = !isMuted;
-      localStorage.setItem('rishabh_audio_muted', isMuted);
-      return isMuted;
-    },
-    isMuted: () => isMuted
-  };
-})();
-
-window.AudioSynth = AudioSynth;
-
-// 2. DOM Initialization
+// Portfolio main application logic
 document.addEventListener('DOMContentLoaded', () => {
-  // Audio Mute Button
-  const soundToggleBtn = document.getElementById('sound-toggle');
-  if (soundToggleBtn) {
-    function updateSoundIcon() {
-      soundToggleBtn.innerHTML = AudioSynth.isMuted() ? '🔇' : '🔊';
-      soundToggleBtn.title = AudioSynth.isMuted() ? 'Unmute SFX' : 'Mute SFX';
-    }
-    updateSoundIcon();
-
-    soundToggleBtn.addEventListener('click', () => {
-      const muted = AudioSynth.toggleMute();
-      updateSoundIcon();
-      showToast(muted ? 'Sound Effects Muted' : 'Sound Effects Enabled 🔊');
-      if (!muted) AudioSynth.playSuccess();
-    });
-  }
-
-  // Sound triggers on interactive elements
-  document.querySelectorAll('a, button, .cmd-badge, .filter-btn').forEach(el => {
-    el.addEventListener('mouseenter', () => AudioSynth.playHover(), { passive: true });
-    el.addEventListener('click', () => AudioSynth.playClick(), { passive: true });
-  });
-
-  // Navbar & Scroll Progress Tracking
   const navbar = document.querySelector('.navbar');
-  const scrollProgressBar = document.getElementById('scroll-progress');
+  const progressBar = document.getElementById('scroll-progress');
   const backToTopBtn = document.getElementById('back-to-top');
+  const navLinks = document.querySelector('.nav-links');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const sections = document.querySelectorAll('section[id]');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
 
+  // Scroll handler: progress bar, sticky header & back-to-top visibility
   window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    
-    // 1. Scroll Progress
-    if (scrollProgressBar && docHeight > 0) {
-      const scrollPercent = Math.min((scrollTop / docHeight) * 100, 100);
-      scrollProgressBar.style.width = `${scrollPercent}%`;
+
+    if (progressBar && docHeight > 0) {
+      progressBar.style.width = `${Math.min((scrollY / docHeight) * 100, 100)}%`;
     }
 
-    // 2. Navbar Background
-    if (scrollTop > 40) {
+    if (scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
-    // 3. Back to Top Button Visibility
     if (backToTopBtn) {
-      if (scrollTop > 380) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
+      backToTopBtn.classList.toggle('visible', scrollY > 400);
     }
 
-    highlightActiveNavLink();
+    // Update active nav link
+    const offset = scrollY + 160;
+    sections.forEach(sec => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute('id');
+      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+
+      if (offset >= top && offset < top + height) {
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        if (link) link.classList.add('active');
+      }
+    });
   }, { passive: true });
 
-  // Back to Top Click
+  // Smooth scroll back to top
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      AudioSynth.playClick();
     });
   }
 
-  // Highlight active nav link based on scroll position
-  function highlightActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.pageYOffset + 140;
+  // Mobile menu toggle
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
 
-    sections.forEach(sec => {
-      const sectionHeight = sec.offsetHeight;
-      const sectionTop = sec.offsetTop;
-      const sectionId = sec.getAttribute('id');
-      const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        if (navLink) navLink.classList.add('active');
-      } else {
-        if (navLink) navLink.classList.remove('active');
-      }
+    // Close menu when clicking any nav link on mobile
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
     });
   }
 
-  // Hero Dynamic Typing Animation
-  function initHeroTyping() {
-    const el = document.getElementById('hero-typed-text');
-    if (!el) return;
-
-    const roles = [
-      'Full-Stack Web Architect',
-      'Multimodal GenAI Developer',
+  // Hero subtitle typewriter effect
+  const typedEl = document.getElementById('hero-typed-text');
+  if (typedEl) {
+    const titles = [
+      'Full-Stack Developer',
+      'AI Systems & Gemini Builder',
       '60 FPS Canvas Game Engineer',
-      'Production Systems Builder'
+      'Web Application Architect'
     ];
+    let titleIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
 
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    const tick = () => {
+      const full = titles[titleIdx];
+      typedEl.textContent = deleting
+        ? full.substring(0, charIdx--)
+        : full.substring(0, charIdx++);
 
-    function type() {
-      const current = roles[roleIndex];
-      if (isDeleting) {
-        el.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        el.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
+      let delay = deleting ? 35 : 70;
+
+      if (!deleting && charIdx === full.length + 1) {
+        delay = 2000;
+        deleting = true;
+      } else if (deleting && charIdx === 0) {
+        deleting = false;
+        titleIdx = (titleIdx + 1) % titles.length;
+        delay = 400;
       }
 
-      let speed = isDeleting ? 38 : 75;
-
-      if (!isDeleting && charIndex === current.length) {
-        speed = 2200; // Pause on completed phrase
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        speed = 500; // Pause before typing next
-      }
-
-      setTimeout(type, speed);
-    }
-    type();
+      setTimeout(tick, delay);
+    };
+    tick();
   }
-  initHeroTyping();
 
-  // Scroll Reveal Observer
-  function initScrollReveals() {
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    if (!('IntersectionObserver' in window)) {
-      revealElements.forEach(el => el.classList.add('active'));
-      return;
-    }
-
+  // Scroll reveal observer
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -208,39 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
           obs.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     revealElements.forEach(el => observer.observe(el));
-  }
-  initScrollReveals();
-
-  // Mobile Menu Toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.style.display === 'flex';
-      navLinks.style.display = isOpen ? 'none' : 'flex';
-      if (!isOpen) {
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '72px';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.background = '#090d16';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.padding = '20px';
-        navLinks.style.borderBottom = '1px solid rgba(0,240,255,0.2)';
-      }
-    });
+  } else {
+    revealElements.forEach(el => el.classList.add('active'));
   }
 
-  // Projects Filter Buttons
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
+  // Projects filter
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
@@ -248,46 +124,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filter = btn.dataset.filter;
       projectCards.forEach(card => {
-        const category = card.dataset.category || '';
-        if (filter === 'all' || category.includes(filter)) {
-          card.style.display = 'flex';
-          card.style.animation = 'scaleIn 0.3s ease forwards';
-        } else {
-          card.style.display = 'none';
-        }
+        const cat = card.dataset.category || '';
+        const match = filter === 'all' || cat.includes(filter);
+        card.style.display = match ? 'flex' : 'none';
       });
     });
   });
 
-  // Copy to Clipboard Helpers
+  // Global clipboard copy helper
   window.copyText = function(text, label) {
     navigator.clipboard.writeText(text).then(() => {
-      showToast(`Copied ${label} to clipboard!`);
-      AudioSynth.playSuccess();
+      showToast(`${label} copied to clipboard`);
     }).catch(() => {
-      showToast(`Failed to copy`);
+      showToast('Failed to copy');
     });
   };
 });
 
-// Toast Manager
+// Toast notification helper
 function showToast(message) {
-  let container = document.querySelector('.toast-container');
-  if (!container) {
-    container = document.createElement('div');
-    container.className = 'toast-container';
-    document.body.appendChild(container);
+  let toast = document.querySelector('.toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast';
+    document.body.appendChild(toast);
   }
-
-  const toast = document.createElement('div');
-  toast.className = 'toast';
   toast.textContent = message;
-  container.appendChild(toast);
+  toast.classList.add('show');
 
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    toast.style.transition = '0.3s ease';
-    setTimeout(() => toast.remove(), 300);
-  }, 3200);
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2600);
 }

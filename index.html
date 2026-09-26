@@ -3,36 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rishabh Yadav — 3D Cyberpunk Developer Portfolio | Full-Stack & AI Systems</title>
+  <title>Rishabh Yadav — Full-Stack Developer & AI Systems</title>
   
-  <meta name="description" content="Official 3D interactive portfolio of Rishabh Yadav — Full-Stack Developer & AI Systems Builder. Featuring Three.js WebGL scenes, interactive CLI terminal, and verified live production builds.">
-  <meta name="keywords" content="Rishabh Yadav, Full Stack Developer, React, Python, Three.js, WebGL, AI, BCA, Dr RMLAU">
+  <meta name="description" content="Portfolio of Rishabh Yadav — Full-Stack Web Developer & AI Systems Builder. Featuring interactive 3D WebGL scenes, terminal emulator, and verified production projects.">
+  <meta name="keywords" content="Rishabh Yadav, Full Stack Developer, JavaScript, Python, PHP, Three.js, WebGL, AI, BCA">
   <meta name="author" content="Rishabh Yadav">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Rishabh Yadav — 3D Cyberpunk Developer Portfolio">
-  <meta property="og:description" content="Explore live builds: E-Commerce storefront, Voice AI mock interviewer, and 60 FPS HTML5 Canvas combat game.">
+  <meta property="og:title" content="Rishabh Yadav — Developer Portfolio">
+  <meta property="og:description" content="Explore live builds: E-Commerce storefront, Voice AI mock interviewer, and 60 FPS Canvas combat game.">
   <meta property="og:type" content="website">
 
-  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Top Scroll Progress Indicator Bar -->
+  <!-- Top scroll progress indicator -->
   <div id="scroll-progress"></div>
 
-  <!-- Background Cyber Atmosphere -->
+  <!-- Ambient lighting & background grid -->
   <div class="cyber-grid-bg"></div>
   <div class="ambient-glow ambient-glow-1"></div>
   <div class="ambient-glow ambient-glow-2"></div>
 
-  <!-- ======================================================================
-       NAVBAR
-       ====================================================================== -->
+  <!-- Navigation -->
   <header class="navbar">
     <div class="container nav-content">
       <a href="#hero" class="nav-brand">
@@ -50,7 +44,6 @@
       </ul>
 
       <div class="nav-actions">
-        <button id="sound-toggle" class="btn-icon" title="Toggle SFX">🔊</button>
         <a href="assets/resume.pdf" download="Rishabh_Yadav_Resume.pdf" target="_blank" class="btn-primary">
           <span>📄</span>
           <span>Resume</span>
@@ -60,16 +53,11 @@
     </div>
   </header>
 
-  <!-- ======================================================================
-       HERO SECTION (3D WEBGL WORKSTATION)
-       ====================================================================== -->
+  <!-- Hero Section -->
   <section id="hero" class="hero-section">
-    <!-- Three.js 3D WebGL Canvas Layer -->
     <div id="webgl-canvas-container"></div>
 
     <div class="container hero-grid">
-      
-      <!-- Left Column Content -->
       <div class="hero-content reveal-left">
         <div class="status-pill">
           <span class="pulse-dot"></span>
@@ -133,10 +121,10 @@
         </a>
       </div>
 
-      <!-- Right Column: Interactive Cyber Station Card -->
+      <!-- Developer workstation identity card -->
       <div class="hero-station-card reveal-right">
         <div class="station-header">
-          <span class="station-title">⚡ Operator Identity</span>
+          <span class="station-title">⚡ Developer Identity</span>
           <span style="font-family: var(--font-mono); font-size: 11px; color: var(--neon-green); font-weight: 700;">● NOIDA / REMOTE</span>
         </div>
 
@@ -175,13 +163,10 @@
           <span>Move mouse to pan 3D cyber station in real-time WebGL</span>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ======================================================================
-       PROJECTS SECTION (HOLOGRAM GALLERY)
-       ====================================================================== -->
+  <!-- Projects Section -->
   <section id="projects" class="reveal">
     <div class="container">
       <div class="section-tag">Production Portfolios</div>
@@ -190,7 +175,6 @@
         Each project represents a production-grade software system with clean architecture, responsive layouts, and verified web deployments.
       </p>
 
-      <!-- Category Filter Pills -->
       <div class="projects-filter">
         <button class="filter-btn active" data-filter="all">All Builds (4)</button>
         <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
@@ -199,7 +183,6 @@
       </div>
 
       <div class="projects-grid">
-
         <!-- 1. Rishu Shop -->
         <article class="project-card reveal delay-1" data-category="fullstack">
           <div class="project-preview-wrap">
@@ -332,14 +315,11 @@
             </a>
           </div>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- ======================================================================
-       INTERACTIVE CYBER TERMINAL
-       ====================================================================== -->
+  <!-- Interactive Terminal -->
   <section id="terminal" class="reveal">
     <div class="container">
       <div class="section-tag">Interactive CLI Workstation</div>
@@ -360,16 +340,8 @@
         </div>
 
         <div class="terminal-body">
-          <div class="terminal-welcome">
-   ____  _     _           _     _       ____             
-  |  _ \(_)___| |__   __ _| |__ | |__   |  _ \  _____   __
-  | |_) | / __| '_ \ / _` | '_ \| '_ \  | | | |/ _ \ \ / /
-  |  _ <| \__ \ | | | (_| | |_) | | | |_| |_| |  __/\ V / 
-  |_| \_\_|___/_| |_|\__,_|_.__/|_| |_(_)____/ \___| \_/  
-  ═════════════════════════════════════════════════════════
-  [!] Type "help" to view all available commands.
-  [!] Type "hire" to initiate software engineering recruitment.
-          </div>
+          <div class="terminal-welcome">rishabh-shell v1.2.0 (x86_64-pc-linux-gnu)
+Type "help" to view available commands, or "projects" to view live builds.</div>
 
           <div id="terminal-history" class="terminal-history"></div>
 
@@ -391,13 +363,10 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ======================================================================
-       TECHNICAL SKILLS & ARSENAL
-       ====================================================================== -->
+  <!-- Technical Skills & Proficiencies -->
   <section id="skills" class="reveal">
     <div class="container">
       <div class="section-tag">Engineering Matrix</div>
@@ -407,7 +376,6 @@
       </p>
 
       <div class="skills-container">
-
         <div class="skill-category-card">
           <h3><span>🎨</span> Frontend & Web UI</h3>
           <div class="skills-pills-wrap">
@@ -457,14 +425,11 @@
             <span class="skill-chip">Inno Setup Packaging</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ======================================================================
-       EDUCATION SECTION
-       ====================================================================== -->
+  <!-- Education Section -->
   <section id="education" class="reveal">
     <div class="container">
       <div class="section-tag">Academic Credentials</div>
@@ -484,9 +449,7 @@
     </div>
   </section>
 
-  <!-- ======================================================================
-       CONTACT & HIRING SECTION
-       ====================================================================== -->
+  <!-- Contact & Collaboration Section -->
   <section id="contact" class="reveal">
     <div class="container">
       <div class="section-tag">Direct Comms</div>
@@ -542,7 +505,6 @@
           </div>
         </div>
 
-        <!-- Quick Email Form -->
         <div style="display: flex; flex-direction: column; justify-content: center; background: rgba(0,0,0,0.3); padding: 30px; border-radius: 18px; border: 1px dashed rgba(255,255,255,0.1);">
           <h4 style="font-size: 20px; font-weight: 800; margin-bottom: 10px;">⚡ Quick Interview / Work Invite</h4>
           <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">
@@ -561,16 +523,13 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- Floating Back to Top Button -->
   <button id="back-to-top" title="Back to top" aria-label="Back to top">↑</button>
 
-  <!-- ======================================================================
-       FOOTER
-       ====================================================================== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2026 Rishabh Yadav. Built with <span class="heart">♥</span> using Three.js WebGL & Vanilla Web Technologies.</p>
@@ -581,21 +540,14 @@
   </footer>
 
   <!-- Scripts -->
-  <!-- 1. Local Three.js with CDN fallback -->
   <script src="assets/three.min.js"></script>
   <script>
     if (typeof THREE === 'undefined') {
       document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
     }
   </script>
-
-  <!-- 2. Application Logic & Synthesizer -->
   <script src="app.js"></script>
-
-  <!-- 3. WebGL 3D Cyber Scene -->
   <script src="three-scene.js"></script>
-
-  <!-- 4. Interactive Terminal -->
   <script src="terminal.js"></script>
 
 </body>
