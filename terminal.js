@@ -25,6 +25,8 @@
     about: 'Display developer background, degree & specialization',
     skills: 'View technical skills, languages & tools with proficiency',
     projects: 'View 4 production builds with live URLs & GitHub repositories',
+    'why-hire': 'Discover 4 reasons why Rishabh adds immense engineering value',
+    faq: 'Recruiter FAQ: Notice period, immediate availability, location',
     resume: 'Open and download Rishabh Yadav\'s 2026 Resume PDF',
     contact: 'Get direct email, phone, and professional LinkedIn profile',
     clear: 'Clear the terminal console buffer',
@@ -172,6 +174,31 @@
 
       case 'clear':
         terminalHistory.innerHTML = '';
+        break;
+
+      case 'why-hire':
+      case 'why':
+        appendLine(`
+          <div style="margin: 6px 0; color: #e2e8f0;">
+            <div style="color: #00f0ff; font-weight: bold; margin-bottom: 6px;">Why Hire Rishabh:</div>
+            <div>🚀 <b>End-to-End Production:</b> All 4 projects deployed live with SSL, cloud domains, and verified uptime.</div>
+            <div>⚡ <b>60 FPS Optimization:</b> WebGL, Canvas physics loops, and sub-100ms API orchestration.</div>
+            <div>🧠 <b>Applied GenAI:</b> Gemini 2.0 Flash voice analytics, speech cadence, and automated PDF scoring.</div>
+            <div>🛡️ <b>Clean Engineering:</b> Modular vanilla & framework code, disciplined Git workflows.</div>
+          </div>
+        `);
+        break;
+
+      case 'faq':
+        appendLine(`
+          <div style="margin: 6px 0; color: #cbd5e1;">
+            <div style="color: #00f0ff; font-weight: bold; margin-bottom: 6px;">Recruiter Screening Quick FAQ:</div>
+            <div>• <b>Availability:</b> Immediate start for SDE / Web Dev Internships (2026).</div>
+            <div>• <b>Location:</b> Noida / Greater Noida / Delhi NCR / Remote worldwide.</div>
+            <div>• <b>Projects:</b> 100% testable online right now across GitHub Pages, Vercel & Streamlit.</div>
+            <div>• <b>Interview:</b> Turnaround in 24 hrs via ysrishabh017@gmail.com / +91 7607718791.</div>
+          </div>
+        `);
         break;
 
       case 'matrix':

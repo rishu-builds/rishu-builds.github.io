@@ -22,6 +22,9 @@
 </head>
 <body>
 
+  <!-- Top Scroll Progress Indicator Bar -->
+  <div id="scroll-progress"></div>
+
   <!-- Background Cyber Atmosphere -->
   <div class="cyber-grid-bg"></div>
   <div class="ambient-glow ambient-glow-1"></div>
@@ -40,9 +43,10 @@
       <ul class="nav-links">
         <li><a href="#hero" class="active">Station</a></li>
         <li><a href="#projects">Builds</a></li>
+        <li><a href="#why-hire">Why Hire</a></li>
         <li><a href="#terminal">Terminal</a></li>
         <li><a href="#skills">Tech Stack</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
@@ -67,10 +71,10 @@
     <div class="container hero-grid">
       
       <!-- Left Column Content -->
-      <div class="hero-content">
+      <div class="hero-content reveal-left">
         <div class="status-pill">
           <span class="pulse-dot"></span>
-          <span>AVAILABLE FOR SDE / WEB INTERNSHIPS (2026)</span>
+          <span>AVAILABLE FOR SDE / WEB DEV INTERNSHIPS (2026)</span>
         </div>
 
         <h1 class="hero-title">
@@ -79,24 +83,28 @@
         </h1>
 
         <div class="hero-role">
-          <span>Full-Stack Developer</span>
-          <span style="color: #475569;">•</span>
-          <span class="accent-chip">GenAI & Interactive 3D</span>
+          <span class="accent-chip">ACTIVE FOCUS</span>
+          <span id="hero-typed-text" class="typed-role-text">Full-Stack Web Architect</span>
+          <span class="typing-cursor"></span>
         </div>
 
         <p class="hero-summary">
-          BCA 5th Semester student at <b>Dr. Ram Manohar Lohia Avadh University</b>. Architecting high-performance web applications, multimodal AI assistants, and low-latency interactive canvas systems.
+          BCA student (5th Semester) at <b>Dr. Ram Manohar Lohia Avadh University</b>. Architecting high-performance web applications, multimodal Gemini AI systems, and low-latency 60 FPS interactive canvas engines.
         </p>
 
         <div class="hero-buttons">
           <a href="#projects" class="btn-primary">
-            <span>⚡</span>
+            <span>🚀</span>
             <span>Explore 4 Builds</span>
           </a>
           <button onclick="launchTerminalCommand('help')" class="btn-secondary">
             <span>💻</span>
             <span>Open Terminal</span>
           </button>
+          <a href="assets/resume.pdf" download="Rishabh_Yadav_Resume.pdf" target="_blank" class="btn-secondary" style="border-color: rgba(0, 240, 255, 0.4);">
+            <span>📄</span>
+            <span>Resume</span>
+          </a>
         </div>
 
         <div class="metrics-strip">
@@ -106,17 +114,28 @@
           </div>
           <div class="metric-item">
             <span class="metric-number">60<span class="plus">FPS</span></span>
-            <span class="metric-label">Canvas Graphics</span>
+            <span class="metric-label">Canvas Engine</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">1.2<span class="plus">K+</span></span>
+            <span class="metric-label">Git Commits</span>
           </div>
           <div class="metric-item">
             <span class="metric-number">2027</span>
             <span class="metric-label">BCA Graduation</span>
           </div>
         </div>
+
+        <a href="#projects" class="scroll-indicator">
+          <div class="mouse-icon">
+            <div class="mouse-wheel"></div>
+          </div>
+          <span>SCROLL DOWN TO EXPLORE BUILDS</span>
+        </a>
       </div>
 
       <!-- Right Column: Interactive Cyber Station Card -->
-      <div class="hero-station-card">
+      <div class="hero-station-card hud-corner-box reveal-right">
         <div class="station-header">
           <span class="station-title">⚡ Operator Identity</span>
           <span style="font-family: var(--font-mono); font-size: 11px; color: var(--neon-green); font-weight: 700;">● NOIDA / REMOTE</span>
@@ -127,6 +146,9 @@
           <div class="station-avatar-info">
             <h4>Rishabh Yadav</h4>
             <p>BCA Undergrad & Software Engineer</p>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--neon-cyan); margin-top: 4px;">
+              Dr. RMLAU • 5th Semester
+            </div>
           </div>
         </div>
 
@@ -149,7 +171,13 @@
           </div>
         </div>
 
-        <div class="canvas-hint">
+        <div class="hud-telemetry">
+          <span>LATENCY: <strong style="color: var(--neon-green);">14ms</strong></span>
+          <span>RUNTIME: <strong style="color: var(--neon-cyan);">ES6+ / PY3.11</strong></span>
+          <span>STATUS: <span class="tag">DEPLOYED</span></span>
+        </div>
+
+        <div class="canvas-hint" style="margin-top: 14px;">
           <span>🖱️</span>
           <span>Move mouse to pan 3D cyber station in real-time WebGL</span>
         </div>
@@ -161,7 +189,7 @@
   <!-- ======================================================================
        PROJECTS SECTION (HOLOGRAM GALLERY)
        ====================================================================== -->
-  <section id="projects">
+  <section id="projects" class="reveal">
     <div class="container">
       <div class="section-tag">Production Portfolios</div>
       <h2 class="section-title">Verified <span class="highlight">Live Deployments</span></h2>
@@ -180,7 +208,12 @@
       <div class="projects-grid">
 
         <!-- 1. Rishu Shop -->
-        <article class="project-card" data-category="fullstack">
+        <article class="project-card reveal delay-1" data-category="fullstack">
+          <div class="project-preview-wrap">
+            <img src="assets/preview_shop.jpg" alt="Rishu Shop Luxury E-Commerce Platform" class="project-preview-img" loading="lazy">
+            <div class="project-preview-overlay"></div>
+            <div class="project-preview-pill">● VERIFIED LIVE</div>
+          </div>
           <div>
             <div class="project-card-header">
               <div class="project-icon">🛍️</div>
@@ -209,7 +242,12 @@
         </article>
 
         <!-- 2. VoiceAI -->
-        <article class="project-card" data-category="ai">
+        <article class="project-card reveal delay-2" data-category="ai">
+          <div class="project-preview-wrap">
+            <img src="assets/preview_voiceai.jpg" alt="VoiceAI Mock Interviewer App" class="project-preview-img" loading="lazy">
+            <div class="project-preview-overlay"></div>
+            <div class="project-preview-pill purple">● GEMINI 2.0 AI</div>
+          </div>
           <div>
             <div class="project-card-header">
               <div class="project-icon" style="background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);">🎙️</div>
@@ -238,7 +276,12 @@
         </article>
 
         <!-- 3. Key-Jutsu -->
-        <article class="project-card" data-category="game">
+        <article class="project-card reveal delay-3" data-category="game">
+          <div class="project-preview-wrap">
+            <img src="assets/preview_keyjutsu.png" alt="Key-Jutsu Combat Typing Game" class="project-preview-img" loading="lazy">
+            <div class="project-preview-overlay"></div>
+            <div class="project-preview-pill amber">● 60 FPS ENGINE</div>
+          </div>
           <div>
             <div class="project-card-header">
               <div class="project-icon" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">⚔️</div>
@@ -267,7 +310,12 @@
         </article>
 
         <!-- 4. WhatsApp AI CRM -->
-        <article class="project-card" data-category="ai fullstack">
+        <article class="project-card reveal delay-4" data-category="ai fullstack">
+          <div class="project-preview-wrap">
+            <img src="assets/preview_whatsapp.jpg" alt="WhatsApp AI CRM Lead Engine" class="project-preview-img" loading="lazy">
+            <div class="project-preview-overlay"></div>
+            <div class="project-preview-pill">● ENTERPRISE CRM</div>
+          </div>
           <div>
             <div class="project-card-header">
               <div class="project-icon">🤖</div>
@@ -297,9 +345,56 @@
   </section>
 
   <!-- ======================================================================
+       WHY HIRE ME (VALUE PROPOSITION MATRIX)
+       ====================================================================== -->
+  <section id="why-hire" class="reveal">
+    <div class="container">
+      <div class="section-tag">Recruiter Value Proposition</div>
+      <h2 class="section-title">Why Hire <span class="highlight">Rishabh?</span></h2>
+      <p class="section-desc">
+        Beyond textbook theory: What sets my software engineering apart from typical college graduates.
+      </p>
+
+      <div class="value-matrix">
+        <div class="value-card reveal delay-1">
+          <div class="value-icon">🚀</div>
+          <h3 class="value-title">End-to-End Production Builds</h3>
+          <p class="value-desc">
+            Not just clone tutorials or localhost prototypes. Every project is fully deployed to production with custom domain routing, SSL encryption, database schemas, and verified live uptime.
+          </p>
+        </div>
+
+        <div class="value-card reveal delay-2">
+          <div class="value-icon">⚡</div>
+          <h3 class="value-title">60 FPS & Low-Latency Focus</h3>
+          <p class="value-desc">
+            Deep hands-on expertise in canvas physics loops, WebGL shader pipelines, requestAnimationFrame optimization, and sub-100ms API response orchestration.
+          </p>
+        </div>
+
+        <div class="value-card reveal delay-3">
+          <div class="value-icon">🧠</div>
+          <h3 class="value-title">Applied Multimodal GenAI</h3>
+          <p class="value-desc">
+            Practical integrations with Google Gemini 2.0 Flash, real-time voice speech analysis (WPM/filler words), OCR image inspection, and programmatic PDF report automation.
+          </p>
+        </div>
+
+        <div class="value-card reveal delay-4">
+          <div class="value-icon">🛡️</div>
+          <h3 class="value-title">Clean Code & Disciplined Git</h3>
+          <p class="value-desc">
+            Modular architecture, self-documenting code, zero unnecessary dependencies, and standard Git branch workflows ready for collaborative corporate engineering teams.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
        INTERACTIVE CYBER TERMINAL
        ====================================================================== -->
-  <section id="terminal">
+  <section id="terminal" class="reveal">
     <div class="container">
       <div class="section-tag">Interactive CLI Workstation</div>
       <h2 class="section-title">Command Line <span class="highlight">Terminal</span></h2>
@@ -343,6 +438,8 @@
             <span class="cmd-badge" data-cmd="about">about</span>
             <span class="cmd-badge" data-cmd="skills">skills</span>
             <span class="cmd-badge" data-cmd="projects">projects</span>
+            <span class="cmd-badge" data-cmd="why-hire">why-hire</span>
+            <span class="cmd-badge" data-cmd="faq">faq</span>
             <span class="cmd-badge" data-cmd="resume">resume</span>
             <span class="cmd-badge" data-cmd="contact">contact</span>
             <span class="cmd-badge" data-cmd="hire" style="color: #34d399; border-color: rgba(16,185,129,0.4);">hire-me 🔥</span>
@@ -357,7 +454,7 @@
   <!-- ======================================================================
        TECHNICAL SKILLS & ARSENAL
        ====================================================================== -->
-  <section id="skills">
+  <section id="skills" class="reveal">
     <div class="container">
       <div class="section-tag">Engineering Matrix</div>
       <h2 class="section-title">Technical <span class="highlight">Proficiencies</span></h2>
@@ -424,7 +521,7 @@
   <!-- ======================================================================
        EDUCATION SECTION
        ====================================================================== -->
-  <section id="education">
+  <section id="education" class="reveal">
     <div class="container">
       <div class="section-tag">Academic Credentials</div>
       <h2 class="section-title">Education & <span class="highlight">Milestones</span></h2>
@@ -444,9 +541,52 @@
   </section>
 
   <!-- ======================================================================
+       RECRUITER FAQ ACCORDION / QUICK Q&A
+       ====================================================================== -->
+  <section id="faq" class="reveal">
+    <div class="container">
+      <div class="section-tag">Candidate Transparency</div>
+      <h2 class="section-title">Recruiter & Engineering <span class="highlight">FAQ</span></h2>
+      <p class="section-desc">
+        Direct answers to primary screening questions for technical recruiters and engineering managers.
+      </p>
+
+      <div class="faq-grid">
+        <div class="faq-card reveal delay-1">
+          <div class="faq-q"><span class="q-icon">Q1</span> Are you available for immediate internship or junior roles?</div>
+          <div class="faq-a">
+            <strong>Yes, immediately available.</strong> Ready to join as a Software Engineer Intern, Frontend Developer, or Full-Stack Trainee for 3 to 6-month internships or full-time junior placement.
+          </div>
+        </div>
+
+        <div class="faq-card reveal delay-2">
+          <div class="faq-q"><span class="q-icon">Q2</span> What are your location and work arrangement preferences?</div>
+          <div class="faq-a">
+            <strong>Noida, Greater Noida, Gurgaon & Delhi NCR</strong> for on-site/hybrid roles. Also 100% equipped with a high-speed fiber workstation for remote roles across India or globally.
+          </div>
+        </div>
+
+        <div class="faq-card reveal delay-3">
+          <div class="faq-q"><span class="q-icon">Q3</span> Are all 4 projects genuinely live and testable?</div>
+          <div class="faq-a">
+            <strong>100% verified.</strong> You can open the live Rishu Shop store, test VoiceAI on Streamlit Cloud, play the 60FPS Key-Jutsu game on Vercel, and inspect all source code on GitHub.
+          </div>
+        </div>
+
+        <div class="faq-card reveal delay-4">
+          <div class="faq-q"><span class="q-icon">Q4</span> How soon can we schedule a technical screening call?</div>
+          <div class="faq-a">
+            <strong>Within 24 hours.</strong> Click the "Send Interview Invitation" button below or reach out directly on WhatsApp/Phone at <strong>+91 7607718791</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
        CONTACT & HIRING SECTION
        ====================================================================== -->
-  <section id="contact">
+  <section id="contact" class="reveal">
     <div class="container">
       <div class="section-tag">Direct Comms</div>
       <h2 class="section-title">Let's <span class="highlight">Collaborate & Hire</span></h2>
@@ -523,6 +663,9 @@
 
     </div>
   </section>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" title="Back to top" aria-label="Back to top">↑</button>
 
   <!-- ======================================================================
        FOOTER
