@@ -37,6 +37,7 @@
       <ul class="nav-links">
         <li><a href="#hero" class="active">Station</a></li>
         <li><a href="#projects">Builds</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Tech Stack</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -196,8 +197,13 @@
             </div>
             <h3 class="project-title">Rishu Shop E-Commerce</h3>
             <p class="project-desc">
-              High-performance luxury streetwear retail platform. Features a mobile-adaptive header, interactive 3D hero showcase, real-time slide-in Cart Drawer, 6-digit phone OTP authentication, dynamic coupon engine, and 5-stage live order shipment pipeline.
+              High-performance luxury streetwear retail platform with mobile-first UI and client-side reactive state management.
             </p>
+            <ul class="project-highlights">
+              <li><span class="bullet-icon">⚡</span> <span><strong>Cart Drawer Engine:</strong> Zero-reload slide-in cart with dynamic price & coupon recalculation.</span></li>
+              <li><span class="bullet-icon">🔐</span> <span><strong>Simulated OTP Auth:</strong> 6-digit phone verification & responsive 2-step checkout flow.</span></li>
+              <li><span class="bullet-icon">📦</span> <span><strong>Order Tracker:</strong> 5-stage shipment pipeline with persistent local order history.</span></li>
+            </ul>
             <div class="project-tags">
               <span class="tech-tag">JavaScript (ES6+)</span>
               <span class="tech-tag">PHP</span>
@@ -230,8 +236,13 @@
             </div>
             <h3 class="project-title">VoiceAI Mock Interviewer</h3>
             <p class="project-desc">
-              Real-time voice-to-voice placement interview coach powered by Google Gemini 2.0 Flash. Evaluates candidate speaking speed (WPM), detects filler words, generates model technical answers, and exports an automated PDF scorecard report.
+              Real-time voice-to-voice placement interview coach powered by Google Gemini 2.0 Flash and Speech Recognition.
             </p>
+            <ul class="project-highlights">
+              <li><span class="bullet-icon">⚡</span> <span><strong>Gemini 2.0 Streaming:</strong> Low-latency voice interview simulation with contextual technical follow-ups.</span></li>
+              <li><span class="bullet-icon">📊</span> <span><strong>Speech Telemetry:</strong> Real-time Words Per Minute (WPM) tracking and filler-word detection.</span></li>
+              <li><span class="bullet-icon">📄</span> <span><strong>Automated PDF Scorecard:</strong> Instant comprehensive candidate evaluation report generation in &lt;2s.</span></li>
+            </ul>
             <div class="project-tags">
               <span class="tech-tag">Python 3.11</span>
               <span class="tech-tag">Streamlit</span>
@@ -264,8 +275,13 @@
             </div>
             <h3 class="project-title">Key-Jutsu Combat Game</h3>
             <p class="project-desc">
-              Fast-paced martial arts touch typing combat game rendered on a 60 FPS HTML5 Canvas engine. Features 100 progressive difficulty levels, 11 cyber-dojo arenas, procedural animation physics, Web Audio API sound effects, and native Windows installer.
+              Fast-paced martial arts touch typing combat game rendered on a 60 FPS HTML5 Canvas engine.
             </p>
+            <ul class="project-highlights">
+              <li><span class="bullet-icon">⚡</span> <span><strong>60 FPS Canvas Loop:</strong> Sub-16ms frame times using <code>requestAnimationFrame</code> without game libraries.</span></li>
+              <li><span class="bullet-icon">🥋</span> <span><strong>100 Progressive Levels:</strong> 11 thematic cyber arenas with stateful enemy AI and combo multiplier system.</span></li>
+              <li><span class="bullet-icon">💻</span> <span><strong>Multi-Platform:</strong> Playable directly in browser via Vercel + packaged as standalone offline Windows PC installer.</span></li>
+            </ul>
             <div class="project-tags">
               <span class="tech-tag">HTML5 Canvas</span>
               <span class="tech-tag">JavaScript (Vanilla)</span>
@@ -298,8 +314,13 @@
             </div>
             <h3 class="project-title">WhatsApp AI Lead Engine</h3>
             <p class="project-desc">
-              Automated 24/7 multimodal customer support and CRM lead capture engine powered by Meta WhatsApp Cloud API and Google Gemini AI. Features voice note transcription, OCR document processing, and SQLite customer relationship tracking.
+              Automated 24/7 multimodal customer support and CRM lead capture engine powered by Meta WhatsApp Cloud API and Google Gemini AI.
             </p>
+            <ul class="project-highlights">
+              <li><span class="bullet-icon">⚡</span> <span><strong>Cloud-Native Webhook:</strong> Meta WhatsApp Cloud API integration with automatic HMAC-SHA256 signature verification.</span></li>
+              <li><span class="bullet-icon">👁️</span> <span><strong>Multimodal Vision:</strong> Real-time OCR receipt extraction, invoice processing, and voice note transcription.</span></li>
+              <li><span class="bullet-icon">🗄️</span> <span><strong>Automated SQLite CRM:</strong> Lead capture pipeline with customer tagging and live web admin monitoring dashboard.</span></li>
+            </ul>
             <div class="project-tags">
               <span class="tech-tag">Node.js</span>
               <span class="tech-tag">FastAPI</span>
@@ -314,6 +335,76 @@
             </a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Engineering Track Record -->
+  <section id="experience" class="reveal">
+    <div class="container">
+      <div class="section-tag">Track Record</div>
+      <h2 class="section-title">Experience & <span class="highlight">Engineering Journey</span></h2>
+      <p class="section-desc">
+        Hands-on development track record building production web systems, integrating cloud AI APIs, and contributing to open-source software.
+      </p>
+
+      <div class="timeline-container">
+        <!-- 1. Independent Developer -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Independent Full-Stack & GenAI Developer</h3>
+                <span class="timeline-company">Self-Directed • Open-Source Builder</span>
+              </div>
+              <span class="timeline-badge">2024 — PRESENT</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Architected and shipped 4 production web applications across GitHub Pages, Vercel, and Streamlit Cloud with sub-second loading performance.</li>
+              <li>Engineered multimodal AI integrations using Google Gemini (2.0 / 1.5 Flash) and Meta WhatsApp Cloud API for automated customer service and lead CRM capture.</li>
+              <li>Maintained active Git version control across public repositories with 1,200+ commits, semantic git hygiene, and clear open-source documentation.</li>
+              <li>Built low-latency 60 FPS HTML5 Canvas graphics engines, client-side state managers, and responsive mobile-first UI systems.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. Academic / BCA Leadership -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">BCA Technical Lead & Peer Mentor</h3>
+                <span class="timeline-company">Dr. Ram Manohar Lohia Avadh University</span>
+              </div>
+              <span class="timeline-badge">2024 — 2027</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Mentored junior and peer BCA students in C/C++ Data Structures, Modern JavaScript (ES6+), and relational SQL database querying.</li>
+              <li>Collaborated on college software mini-projects, demonstrating Git collaboration workflows and clean code standards.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Value Proposition: Why Hire Rishabh -->
+      <div class="value-props-grid">
+        <div class="value-prop-card">
+          <div class="prop-icon">⚡</div>
+          <h4>Zero-to-Production Velocity</h4>
+          <p>Proven track record of turning requirements into live, deployed web applications without hand-holding.</p>
+        </div>
+        <div class="value-prop-card">
+          <div class="prop-icon">🤖</div>
+          <h4>AI-Native Integration</h4>
+          <p>Hands-on expertise connecting modern LLM APIs (Gemini 2.0), webhooks, and multimodal OCR into real functional software.</p>
+        </div>
+        <div class="value-prop-card">
+          <div class="prop-icon">📐</div>
+          <h4>Clean Code & CS Core</h4>
+          <p>Strong foundations in C/C++ memory/data structures, clean OOP architecture, and responsive UI engineering.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -373,8 +464,21 @@
             <span class="skill-chip">Docker</span>
             <span class="skill-chip">Vercel & Cloud CDN</span>
             <span class="skill-chip">VS Code</span>
-            <span class="skill-chip">C / C++ Basics</span>
             <span class="skill-chip">Inno Setup Packaging</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card" style="border-color: rgba(0, 240, 255, 0.3);">
+          <h3><span>🧠</span> Problem Solving & Core CS</h3>
+          <div class="skills-pills-wrap">
+            <span class="skill-chip">C / C++ (Data Structures)</span>
+            <span class="skill-chip">Python (Algorithms)</span>
+            <span class="skill-chip">Arrays, Trees & Graphs</span>
+            <span class="skill-chip">Searching & Sorting</span>
+            <span class="skill-chip">Time & Space Complexity</span>
+            <span class="skill-chip">OOPs Architecture</span>
+            <span class="skill-chip">DBMS & SQL Normalization</span>
+            <span class="skill-chip">OS Fundamentals</span>
           </div>
         </div>
       </div>
