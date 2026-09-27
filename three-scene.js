@@ -118,11 +118,12 @@
 
   scene.add(orbitGroup);
 
-  // 6. Smooth Inertial Mouse Parallax Tracking
+  // 6. Smooth Inertial Mouse & Scroll Parallax Tracking
   let mouseX = 0;
   let mouseY = 0;
   let targetCamX = 0;
   let targetCamY = 2;
+  let scrollY = 0;
 
   window.addEventListener('mousemove', (e) => {
     mouseX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -138,6 +139,10 @@
       targetCamX = mouseX * 1.2;
       targetCamY = 2 + mouseY * 0.7;
     }
+  }, { passive: true });
+
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY || document.documentElement.scrollTop;
   }, { passive: true });
 
   // 7. Responsive Viewport Handler
@@ -156,14 +161,19 @@
     requestAnimationFrame(loop);
     const t = clock.getElapsedTime();
 
-    // Smooth camera damping
-    camera.position.x += (targetCamX - camera.position.x) * 0.045;
-    camera.position.y += (targetCamY - camera.position.y) * 0.045;
-    camera.lookAt(0, 0.5, 0);
+    // Smooth camera damping with scroll parallax
+    const scrollFactor = scrollY * 0.0025;
+    const targetYWithScroll = (targetCamY - scrollFactor * 1.2);
 
-    // Subtle cosmic rotations
+    camera.position.x += (targetCamX - camera.position.x) * 0.045;
+    camera.position.y += (targetYWithScroll - camera.position.y) * 0.045;
+    camera.lookAt(0, 0.5 - scrollFactor * 0.5, 0);
+
+    // Subtle cosmic rotations & scroll layer depth
     particles.rotation.y = t * 0.02;
     particles.rotation.x = t * 0.01;
+    particles.position.y = -scrollFactor * 2;
+    grid.position.y = -2.8 - scrollFactor * 0.6;
 
     ring1.rotation.x = t * 0.3;
     ring1.rotation.y = t * 0.4;

@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Scroll reveal observer
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-up');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -109,11 +109,67 @@ document.addEventListener('DOMContentLoaded', () => {
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
     revealElements.forEach(el => observer.observe(el));
   } else {
     revealElements.forEach(el => el.classList.add('active'));
+  }
+
+  // Animated metric counters on scroll
+  const metricItems = document.querySelectorAll('.metric-item');
+  if ('IntersectionObserver' in window && metricItems.length > 0) {
+    const countObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const numEl = entry.target.querySelector('.metric-number');
+          if (numEl && !numEl.dataset.counted) {
+            numEl.dataset.counted = 'true';
+            animateCount(numEl);
+          }
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    metricItems.forEach(el => countObserver.observe(el));
+  }
+
+  function animateCount(el) {
+    const raw = el.textContent.trim();
+    if (raw.includes('4')) {
+      runCounter(el, 0, 4, 1000, (v) => `${v}<span class="plus">+</span>`);
+    } else if (raw.includes('60')) {
+      runCounter(el, 0, 60, 1100, (v) => `${v}<span class="plus">FPS</span>`);
+    } else if (raw.includes('1.2')) {
+      runDecCounter(el, 0.1, 1.2, 1100, (v) => `${v}<span class="plus">K+</span>`);
+    } else if (raw.includes('2027')) {
+      runCounter(el, 2010, 2027, 1000, (v) => `${v}`);
+    }
+  }
+
+  function runCounter(el, start, end, duration, formatFn) {
+    const startTime = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = Math.floor(start + (end - start) * ease);
+      el.innerHTML = formatFn(val);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  function runDecCounter(el, start, end, duration, formatFn) {
+    const startTime = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = (start + (end - start) * ease).toFixed(1);
+      el.innerHTML = formatFn(val);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
 
   // Projects filter
