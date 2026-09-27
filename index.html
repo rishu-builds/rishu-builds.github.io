@@ -37,7 +37,6 @@
       <ul class="nav-links">
         <li><a href="#hero" class="active">Station</a></li>
         <li><a href="#projects">Builds</a></li>
-        <li><a href="#terminal">Terminal</a></li>
         <li><a href="#skills">Tech Stack</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -84,13 +83,13 @@
             <span>🚀</span>
             <span>Explore 4 Builds</span>
           </a>
-          <button onclick="launchTerminalCommand('help')" class="btn-secondary">
-            <span>💻</span>
-            <span>Open Terminal</span>
-          </button>
-          <a href="assets/resume.pdf" download="Rishabh_Yadav_Resume.pdf" target="_blank" class="btn-secondary" style="border-color: rgba(0, 240, 255, 0.4);">
+          <a href="assets/resume.pdf" download="Rishabh_Yadav_Resume.pdf" target="_blank" class="btn-secondary">
             <span>📄</span>
-            <span>Resume</span>
+            <span>Download Resume</span>
+          </a>
+          <a href="#contact" class="btn-secondary" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;">
+            <span>💬</span>
+            <span>Get In Touch</span>
           </a>
         </div>
 
@@ -319,53 +318,6 @@
     </div>
   </section>
 
-  <!-- Interactive Terminal -->
-  <section id="terminal" class="reveal">
-    <div class="container">
-      <div class="section-tag">Interactive CLI Workstation</div>
-      <h2 class="section-title">Command Line <span class="highlight">Terminal</span></h2>
-      <p class="section-desc">
-        For developers, engineers, and recruiters who prefer the terminal. Type commands or click the quick action chips below.
-      </p>
-
-      <div class="terminal-window">
-        <div class="terminal-titlebar">
-          <div class="window-dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <span class="terminal-title">rishabh@cyber-station:~ (zsh)</span>
-          <span style="font-size: 11px; color: var(--neon-cyan);">ONLINE</span>
-        </div>
-
-        <div class="terminal-body">
-          <div class="terminal-welcome">rishabh-shell v1.2.0 (x86_64-pc-linux-gnu)
-Type "help" to view available commands, or "projects" to view live builds.</div>
-
-          <div id="terminal-history" class="terminal-history"></div>
-
-          <div class="terminal-input-row">
-            <span class="prompt-user">guest@rishabh-dev</span>:<span class="prompt-path">~</span>$
-            <input type="text" id="terminal-input" class="terminal-input" placeholder="type 'help', 'projects', 'resume'..." autocomplete="off" spellcheck="false">
-          </div>
-
-          <div class="quick-commands">
-            <span style="font-size: 11px; color: var(--text-muted); margin-right: 4px;">Quick Run:</span>
-            <span class="cmd-badge" data-cmd="help">help</span>
-            <span class="cmd-badge" data-cmd="about">about</span>
-            <span class="cmd-badge" data-cmd="skills">skills</span>
-            <span class="cmd-badge" data-cmd="projects">projects</span>
-            <span class="cmd-badge" data-cmd="resume">resume</span>
-            <span class="cmd-badge" data-cmd="contact">contact</span>
-            <span class="cmd-badge" data-cmd="hire" style="color: #34d399; border-color: rgba(16,185,129,0.4);">hire-me 🔥</span>
-            <span class="cmd-badge" data-cmd="clear">clear</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Technical Skills & Proficiencies -->
   <section id="skills" class="reveal">
     <div class="container">
@@ -548,7 +500,6 @@ Type "help" to view available commands, or "projects" to view live builds.</div>
   </script>
   <script src="app.js"></script>
   <script src="three-scene.js"></script>
-  <script src="terminal.js"></script>
 
 </body>
 </html>

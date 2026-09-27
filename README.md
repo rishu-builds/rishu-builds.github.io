@@ -11,7 +11,7 @@
 <br/>
 
 <p align="center">
-  <b>An immersive, high-performance 3D developer portfolio engineered with Three.js (WebGL), procedural lighting, an interactive Unix CLI terminal emulator, and verified production project deployments.</b>
+  <b>An immersive, high-performance 3D developer portfolio engineered with Three.js (WebGL), atmospheric procedural lighting, smooth inertial parallax, and verified production project deployments.</b>
 </p>
 
 [**🌐 Explore Live Portfolio**](https://rishu-builds.github.io/) &nbsp;•&nbsp; 
@@ -27,7 +27,7 @@
 
 This repository hosts the official personal developer portfolio of **Rishabh Yadav** (BCA Undergrad at Dr. Ram Manohar Lohia Avadh University). 
 
-Moving beyond traditional static portfolio templates, this website is built as an interactive **3D Cyberpunk Developer Station** — combining low-latency WebGL graphics, an in-browser Unix terminal for technical recruiters, and direct access to 4 live production projects.
+Built as an interactive **3D Cyberpunk Portfolio Station** — combining low-latency WebGL graphics, butter-smooth scroll reveals, and direct one-click access to 4 live production projects.
 
 ### 🎮 Live Demo: [https://rishu-builds.github.io/](https://rishu-builds.github.io/)
 
@@ -35,22 +35,14 @@ Moving beyond traditional static portfolio templates, this website is built as a
 
 ## ✨ Key Engineering Features
 
-### 1. 🖥️ Procedural 3D Workstation (`three-scene.js`)
-* **Custom WebGL Scene**: Built directly with Three.js without external bulky 3D model assets (0 MB 3D asset overhead).
-* **Interactive Lighting**: Multi-point cyberpunk lighting rig featuring Cyan key spotlight, Magenta rim light, and Indigo fill glow.
+### 1. 🖥️ Interactive 3D Cyber Atmosphere (`three-scene.js`)
+* **Custom WebGL Engine**: Built directly with Three.js without external bulky 3D assets (0 MB 3D asset overhead).
+* **Multi-Point Lighting**: Cyberpunk lighting rig featuring Cyan key light, Magenta rim glow, and Indigo ambient fill.
 * **Inertial Mouse Parallax**: Camera tracks cursor movement with smooth linear interpolation (`lerp` damping) for a fluid 3D depth perception.
-* **Particle Starfield**: 800+ floating stardust nodes with organic drift physics.
+* **Particle Starfield**: 850+ floating stardust nodes with organic cosmic drift physics.
 * **Responsive Viewport**: Automatically recalibrates camera aspect ratio and renderer pixel ratio on window resize.
 
-### 2. 💻 Interactive CLI Terminal (`terminal.js`)
-* **Real Command Interpreter**: Mimics a Linux/Unix bash environment (`guest@rishabh-dev:~$`).
-* **Available Commands**: `help`, `about`, `skills`, `projects`, `resume`, `contact`, `clear`, `matrix`, `hire`.
-* **Power-User Features**:
-  * **[TAB] Auto-Complete**: Suggests and autocompletes commands.
-  * **Command History**: Cycle through previous commands using `ArrowUp` and `ArrowDown`.
-  * **Global Launcher**: UI buttons seamlessly jump to and execute terminal commands.
-
-### 3. 🚀 Verified Production Builds Showcase
+### 2. 🚀 Verified Production Builds Showcase
 Direct live interactive links and repository code for 4 full-stack projects:
 
 | Project | Domain | Tech Stack | Live Demo | Repository |
@@ -60,7 +52,7 @@ Direct live interactive links and repository code for 4 full-stack projects:
 | **⚔️ Key-Jutsu** | 60 FPS Combat Engine | HTML5 Canvas, Web Audio, JS | [Play Online](https://keyjutsu-game.vercel.app/play.html) | [GitHub](https://github.com/rishu-builds/rishu-key-jutsu) |
 | **🤖 WhatsApp AI Bot** | Enterprise Multimodal CRM | Node.js, Gemini AI, Meta Cloud API | — | [GitHub](https://github.com/rishu-builds/rishabh-whatsapp-bot) |
 
-### 4. 🎨 Human-Crafted Architecture & Performance
+### 3. 🎨 Human-Crafted Architecture & Performance
 * **Zero Build Steps**: Pure vanilla ES6+, HTML5 semantic markup, and modern CSS3 variables (`:root`).
 * **Instant Load Times**: Sub-second First Contentful Paint (FCP) hosted on GitHub Pages CDN.
 * **IntersectionObserver**: Butter-smooth scroll reveal transitions for cards and sections.
@@ -76,8 +68,7 @@ rishabh-3d-portfolio/
 ├── index.html          # Clean semantic markup with accessible navigation & meta tags
 ├── style.css           # Glassmorphic cyberpunk design system, CSS variables & media queries
 ├── app.js              # DOM controller: scroll telemetry, sticky nav, filtering & reveals
-├── terminal.js         # Interactive CLI emulator with history & tab-completion
-├── three-scene.js      # Procedural Three.js 3D WebGL developer workstation & particle engine
+├── three-scene.js      # Procedural Three.js 3D WebGL particle constellation & perspective engine
 │
 ├── assets/             # Optimized visual assets
 │   ├── profile.jpg     # High-resolution developer headshot
@@ -88,6 +79,7 @@ rishabh-3d-portfolio/
 │   └── preview_whatsapp.jpg
 │
 ├── .gitignore          # Git configuration
+├── LICENSE             # MIT License
 └── README.md           # Comprehensive project documentation
 ```
 
