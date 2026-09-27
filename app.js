@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typedEl) {
     const titles = [
       'Full-Stack Developer',
-      'AI Systems & Gemini Builder',
-      '60 FPS Canvas Game Engineer',
-      'Web Application Architect'
+      'AI Systems Builder',
+      '60 FPS Game Engineer',
+      'Web App Architect'
     ];
     let titleIdx = 0;
     let charIdx = 0;
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -15px 0px' });
 
     revealElements.forEach(el => observer.observe(el));
   } else {

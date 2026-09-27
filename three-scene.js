@@ -162,8 +162,8 @@
     const t = clock.getElapsedTime();
 
     // Smooth camera damping with scroll parallax
-    const scrollFactor = scrollY * 0.0025;
-    const targetYWithScroll = (targetCamY - scrollFactor * 1.2);
+    const scrollFactor = Math.min(scrollY * 0.0018, 3.2);
+    const targetYWithScroll = (targetCamY - scrollFactor * 1.1);
 
     camera.position.x += (targetCamX - camera.position.x) * 0.045;
     camera.position.y += (targetYWithScroll - camera.position.y) * 0.045;
