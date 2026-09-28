@@ -24,7 +24,7 @@
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   container.appendChild(renderer.domElement);
 
-  // 2. Cyberpunk Atmospheric Lighting
+  // 2. Scene Lighting
   const ambient = new THREE.AmbientLight(0x0a101d, 1.4);
   scene.add(ambient);
 
@@ -40,14 +40,14 @@
   purpleFill.position.set(0, -3, 6);
   scene.add(purpleFill);
 
-  // 3. Cyber Perspective Floor Grid
+  // 3. Perspective Grid
   const grid = new THREE.GridHelper(70, 70, 0x00f0ff, 0x1e293b);
   grid.position.y = -2.8;
   grid.material.opacity = 0.28;
   grid.material.transparent = true;
   scene.add(grid);
 
-  // 4. Floating 3D Stardust Particle Field (800+ Nodes)
+  // 4. Particle Field
   const particleCount = 850;
   const particleGeo = new THREE.BufferGeometry();
   const positions = new Float32Array(particleCount * 3);
@@ -82,7 +82,7 @@
   const particles = new THREE.Points(particleGeo, particleMat);
   scene.add(particles);
 
-  // 5. Ambient Cyber Orbital Rings (positioned in deep background)
+  // 5. Background Geometry
   const orbitGroup = new THREE.Group();
   orbitGroup.position.set(-6, 1.5, -4);
 
