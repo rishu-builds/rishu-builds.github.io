@@ -50,9 +50,9 @@ Direct live interactive links and repository code for 4 full-stack projects:
 | **🛍️ Rishu Shop** | Full-Stack E-Commerce | Vanilla JS, PHP, MySQL, SQLite | [Live Storefront](https://rishu-builds.github.io/rishu-shop-ecommerce/) | [GitHub](https://github.com/rishu-builds/rishu-shop-ecommerce) |
 | **🎙️ VoiceAI** | GenAI Placement Coach | Python, Streamlit, Google Gemini 2.0 | [Live App](https://rishu-voice-ai.streamlit.app/) | [GitHub](https://github.com/rishu-builds/voice-ai-mock-interviewer) |
 | **⚔️ Key-Jutsu** | Action Typing Game | HTML5 Canvas, Web Audio, JS | [Play Online](https://keyjutsu-game.vercel.app/play.html) | [GitHub](https://github.com/rishu-builds/rishu-key-jutsu) |
-| **🤖 WhatsApp AI Bot** | Assistant & Lead Bot | Node.js, Gemini AI, Meta Cloud API | — | [GitHub](https://github.com/rishu-builds/rishabh-whatsapp-bot) |
+| **🤖 WhatsApp AI Bot** | Assistant & Utility Bot | Node.js, Google Gemini, whatsapp-web.js | — | [GitHub](https://github.com/rishu-builds/rishabh-whatsapp-bot) |
 
-### 3. 🎨 Clean Architecture & Performance
+### 3. 🎨 Clean Design & Performance
 * **Zero Build Steps**: Pure vanilla ES6+, semantic HTML5 markup, and modern CSS3 variables (`:root`).
 * **Fast Load Times**: Sub-second load times hosted on GitHub Pages CDN.
 * **IntersectionObserver**: Smooth scroll reveal transitions for cards and sections.
@@ -118,7 +118,7 @@ Open your browser and navigate to `http://localhost:8000`.
 ## 👨‍💻 About the Author
 
 **Rishabh Yadav**  
-*Full-Stack Web Architect & AI Systems Engineer*  
+*Aspiring Software Engineer & Full-Stack Developer*  
 *BCA Undergrad (Batch 2024–2027) • Dr. Ram Manohar Lohia Avadh University*
 
 * 🌐 **Portfolio**: [https://rishu-builds.github.io/](https://rishu-builds.github.io/)

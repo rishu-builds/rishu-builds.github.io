@@ -1,5 +1,5 @@
 @echo off
-title Rishabh Yadav - 3D Cyberpunk Portfolio
-echo Opening Rishabh Yadav 3D Cyberpunk Portfolio in your browser...
+title Rishabh Yadav - Developer Portfolio
+echo Opening Developer Portfolio in your default browser...
 start "" "%~dp0index.html"
 exit

@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typedEl) {
     const titles = [
       'Full-Stack Developer',
-      'AI Systems Builder',
-      '60 FPS Game Engineer',
-      'Web App Architect'
+      'Web & AI Developer',
+      'Interactive Game Dev',
+      'JavaScript & Python Dev'
     ];
     let titleIdx = 0;
     let charIdx = 0;
